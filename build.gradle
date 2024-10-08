@@ -1,7 +1,5 @@
 plugins {
     id "org.sonarqube" version "5.1.0.4882"
-    id 'org.cadixdev.licenser' version '0.6.1'
-
 }
 
 
@@ -58,7 +56,4 @@ test {
     useJUnitPlatform()
 }
 
-license {
-    skipExistingHeaders = true
-    include '**/*.java'
-}
+
