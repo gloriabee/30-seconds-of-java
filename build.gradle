@@ -1,7 +1,9 @@
 plugins {
-    id "org.sonarqube" version "3.0"
+    id "org.sonarqube" version "5.1.0.4882"
     id 'org.cadixdev.licenser' version '0.6.1'
+
 }
+
 
 // Apply the java plugin to add support for Java
 apply plugin: 'java'
