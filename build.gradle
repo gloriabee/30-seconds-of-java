@@ -1,21 +1,15 @@
 plugins {
-    id "org.sonarqube" version "5.1.0.4882"
+    id 'org.cadixdev.licenser' version '0.6.1'
+    id "org.sonarqube" version "5.0.0.4638"
+    id "jacoco"
 }
-
-sonar {
-    properties {
-        property "sonar.projectKey", "30-seconds-of-java"
-        property "sonar.projectName", "30-seconds-of-java"
-    }
-}
-
 
 // Apply the java plugin to add support for Java
 apply plugin: 'java'
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
+    sourceCompatibility = JavaVersion.VERSION_18
+    targetCompatibility = JavaVersion.VERSION_18
 }
 
 configurations {
@@ -31,6 +25,12 @@ checkstyle {
     maxWarnings = 0
 }
 
+sonar {
+    properties {
+        property "sonar.projectKey", "30-seconds-of-java"
+        property "sonar.projectName", "30-seconds-of-java"
+    }
+}
 
 
 // In this section you declare where to find the dependencies of your project
@@ -57,10 +57,30 @@ dependencies {
     checkstyleConfig dependencies.create("com.puppycrawl.tools:checkstyle:${checkstyle.toolVersion}") {
         transitive = false
     }
+
+
 }
 
 test {
     useJUnitPlatform()
 }
 
+jacoco {
+    toolVersion = "0.8.10"
+}
 
+jacocoTestReport {
+    reports {
+        xml.required = true
+    }
+}
+
+license {
+    skipExistingHeaders = true
+    include '**/*.java'
+}
+
+tasks.named('sonar') {
+    dependsOn tasks.named('test')
+    dependsOn tasks.named('jacocoTestReport')
+}
