@@ -26,13 +26,6 @@ checkstyle {
     maxWarnings = 0
 }
 
-sonarqube {
-    properties {
-        property "sonar.projectKey", "iluwatar_30-seconds-of-java"
-        property "sonar.organization", "iluwatar"
-        property "sonar.host.url", "https://sonarcloud.io"
-    }
-}
 
 
 // In this section you declare where to find the dependencies of your project
