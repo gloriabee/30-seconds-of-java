@@ -24,6 +24,7 @@
 
 package algorithm;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
@@ -48,5 +49,30 @@ class BubbleSortSnippetTest {
     assertEquals(4, arr[3]);
     assertEquals(5, arr[4]);
     assertEquals(6, arr[5]);
+
+    // Test case: Already sorted array
+    int[] sortedArr = {1, 2, 3, 4, 5, 6};
+    BubbleSortSnippet.bubbleSort(sortedArr);
+    assertArrayEquals(new int[]{1, 2, 3, 4, 5, 6}, sortedArr);
+
+    // Test case: Reverse sorted array
+    int[] reverseArr = {6, 5, 4, 3, 2, 1};
+    BubbleSortSnippet.bubbleSort(reverseArr);
+    assertArrayEquals(new int[]{1, 2, 3, 4, 5, 6}, reverseArr);
+
+    // Test case: Array with duplicates
+    int[] duplicateArr = {3, 1, 2, 3, 1, 2};
+    BubbleSortSnippet.bubbleSort(duplicateArr);
+    assertArrayEquals(new int[]{1, 1, 2, 2, 3, 3}, duplicateArr);
+
+    // Test case: Single element array
+    int[] singleElementArr = {42};
+    BubbleSortSnippet.bubbleSort(singleElementArr);
+    assertArrayEquals(new int[]{42}, singleElementArr);
+
+    // Test case: Empty array
+    int[] emptyArr = {};
+    BubbleSortSnippet.bubbleSort(emptyArr);
+    assertArrayEquals(new int[]{}, emptyArr);
   }
 }

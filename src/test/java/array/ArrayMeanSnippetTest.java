@@ -25,6 +25,7 @@
 package array;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
@@ -40,5 +41,18 @@ public class ArrayMeanSnippetTest {
   void testArrayMean() {
     assertEquals(4.7, ArrayMeanSnippet.arrayMean(new int[]{10, 9, 4, 1, 3, -11, 20, 6, 2, 3}));
     assertEquals(-62.75, ArrayMeanSnippet.arrayMean(new int[]{-30, -31, -63, -127}));
+    assertThrows(ArithmeticException.class, () -> ArrayMeanSnippet.arrayMean(new int[]{}));
+    // Test with a single element
+    assertEquals(5.0, ArrayMeanSnippet.arrayMean(new int[]{5}), "Mean of single element array should equal the element itself.");
+
+    // Test with an array of the same element
+    assertEquals(5.0, ArrayMeanSnippet.arrayMean(new int[]{5, 5, 5, 5}), "Mean of identical elements should equal the element.");
+
+    // Test with an array containing negative and positive values
+    assertEquals(0.0, ArrayMeanSnippet.arrayMean(new int[]{-10, 10}), "Mean of -10 and 10 should be 0.");
+    assertEquals(2.0, ArrayMeanSnippet.arrayMean(new int[]{1, 2, 3}), "Mean of 1, 2, and 3 should be 2.0.");
+    assertEquals(-1.0, ArrayMeanSnippet.arrayMean(new int[]{-1, -1, -1}), "Mean of -1, -1, -1 should be -1.");
+
+
   }
 }

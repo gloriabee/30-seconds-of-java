@@ -41,6 +41,8 @@ class AllEqualSnippetTest {
    */
   @Test
   void testAllEqual() {
+    var emptyArray = new Integer[0];
+    assertTrue(AllEqualSnippet.allEqual(emptyArray), "Empty array should return true.");
     var intArray = new Integer[5];
     assertTrue(AllEqualSnippet.allEqual(intArray));
     intArray[0] = 1;

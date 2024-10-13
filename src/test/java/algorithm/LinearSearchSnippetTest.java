@@ -48,6 +48,10 @@ class LinearSearchSnippetTest {
 
     int[] arr3 = new int[]{4, 9, 1, 7, 33, 100, 11, 106};
     assertEquals(-1, LinearSearchSnippet.linearSearch(arr3, 6));
+
+    // Test for empty array
+    int[] emptyArray = new int[]{};
+    assertEquals(-1, LinearSearchSnippet.linearSearch(emptyArray, 0));
   }
 
 }

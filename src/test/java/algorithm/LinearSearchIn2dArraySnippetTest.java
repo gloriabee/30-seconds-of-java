@@ -27,6 +27,8 @@ package algorithm;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+
 /**
  * Tests for 30 Seconds of Java code library.
  */
@@ -40,9 +42,24 @@ public class LinearSearchIn2dArraySnippetTest {
     int[][] arr1 = {{3, 4, 7, 9}, {12, 24, 26, 29}, {34, 55, 88, 99}, {100, 189, 232, 234}};
     int[] ans1 = {1, 2};
     Assertions assertions  = null;
-    Assertions.assertArrayEquals(ans1, LinearSearchIn2dArraySnippet.linearSearch2dArray(arr1, 26));
+    assertArrayEquals(ans1, LinearSearchIn2dArraySnippet.linearSearch2dArray(arr1, 26));
     int[][] arr2 = {{3, 4, 7, 9}, {12, 24, 26, 29}, {34, 55, 88, 99}, {100, 189, 232, 234}};
     int[] ans2 = {-1, -1};
-    Assertions.assertArrayEquals(ans2, LinearSearchIn2dArraySnippet.linearSearch2dArray(arr2, 69));
+    assertArrayEquals(ans2, LinearSearchIn2dArraySnippet.linearSearch2dArray(arr2, 69));
+
+    // Test case: Empty array
+    int[][] arr6 = {};
+    int[] ans6 = {-1, -1}; // Expected indices for any search in an empty array
+    assertArrayEquals(ans6, LinearSearchIn2dArraySnippet.linearSearch2dArray(arr6, 5));
+
+    // Test case: Search for a negative number
+    int[][] arr7 = {
+            {-3, -2, -1},
+            {0, 1, 2}
+    };
+    int[] ans7 = {0, 1}; // Expected indices for -2
+    assertArrayEquals(ans7, LinearSearchIn2dArraySnippet.linearSearch2dArray(arr7, -2));
   }
+
+
 }

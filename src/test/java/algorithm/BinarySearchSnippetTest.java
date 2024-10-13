@@ -49,5 +49,9 @@ class BinarySearchSnippetTest {
 
     int[] arr3 = new int[]{4, 9, 14, 71, 330, 400, 411, 556};
     assertEquals(-1, BinarySearchSnippet.binarySearch(arr3, 0, arr3.length - 1, 6));
+
+    // Test for empty array
+    int[] emptyArray = new int[]{};
+    assertEquals(-1, BinarySearchSnippet.binarySearch(emptyArray, 0, emptyArray.length - 1, 1));
   }
 }
