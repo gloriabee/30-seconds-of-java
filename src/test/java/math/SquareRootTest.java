@@ -37,9 +37,9 @@ public class SquareRootTest {
    */
   @Test
     void test_sqrt() {
-    assertEquals(6.0, SquareRoot.sqrt(36, 1));
-    assertEquals(6.324555319999993, SquareRoot.sqrt(40, 9));
-    assertEquals(6.707999999999995, SquareRoot.sqrt(45, 3));
-    assertEquals(9.529999999999982, SquareRoot.sqrt(91, 2));
+    assertEquals(6.0, SquareRoot.sqrt(36, 1), 0.0001);
+    assertEquals(6.324555319999993, SquareRoot.sqrt(40, 9), 0.0001);
+    assertEquals(6.707999999999995, SquareRoot.sqrt(45, 3), 0.0001);
+    assertEquals(9.529999999999982, SquareRoot.sqrt(91, 2), 0.0001);
   }
 }

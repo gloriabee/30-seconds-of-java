@@ -37,10 +37,10 @@ public class EvenOddTest {
   */
   @Test
     void test_evenOdd() {
-    assertEquals("even", EvenOdd.evenodd(4));
-    assertEquals("even", EvenOdd.evenodd(0));
-    assertEquals("odd", EvenOdd.evenodd(97));
-    assertEquals("even", EvenOdd.evenodd(-96662));
-    assertEquals("odd", EvenOdd.evenodd(1));
+    assertEquals("even", EvenOdd.evenodd(4), "4 should be even");
+    assertEquals("even", EvenOdd.evenodd(0), "0 should be even");
+    assertEquals("odd", EvenOdd.evenodd(97), "97 should be odd");
+    assertEquals("even", EvenOdd.evenodd(-96662), "-96662 should be even");
+    assertEquals("odd", EvenOdd.evenodd(1), "1 should be odd");
   }
 }
